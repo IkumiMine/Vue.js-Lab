@@ -1,4 +1,4 @@
-#Vue.js Lab - N01442368 Ikumi Mine
+# Vue.js Lab - N01442368 Ikumi Mine
 
 ## Task List
 
