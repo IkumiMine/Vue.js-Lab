@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js Lab 1 - v-if If Statements</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+      .container { border: 1px solid black; width: 30%; border-radius: 5px; box-shadow: 0px .5px 3px #888888;}
+      .img { background: linear-gradient(#ff928b, #fec3a6);}
+      .info { padding: 3% 5%; }
+    </style>
+  </head>
+  <body>
+
+    <div id="app">
+
+<!--      <span v-if="profiles">
+        profile of {{ profiles[0].fname }} {{ profiles[0].lname }}
+      </span>
+      <span v-else>
+        No profile data found. 
+      </span>
+-->
+      <div v-if="profiles.length">
+        <figure v-bind:class="containerStyle">
+          <img v-bind:src="profiles[0].pic ? profiles[0].pic : defaultImg" v-bind:alt="profiles[0].picAlt" v-bind:class="profiles[0].pic ? imgStyle : ''" width="100%">
+          <figcaption v-bind:class="infoStyle">
+            <h1>{{ profiles[0].fname }} {{ profiles[0].lname }}</h1>
+            <h2>{{ profiles[0].desc }}</h2>
+            <p v-if="profiles[0].bio">{{ profiles[0].bio }}</p>
+            <p v-else>BIO will be updated soon.</p>
+          </figcaption>
+        </figure>
+      </div>
+      <div v-else>
+        <p>No profile data found.</p> 
+      <div>
+
+    </div>
+
+    <script type="application/javascript">
+      var app = new Vue({
+        el: '#app', 
+        data: { 
+          profiles: [
+            {
+              fname: 'Ikumi',
+              lname: 'Mine',
+              desc: 'Web Developer / Translator',
+              bio: 'An aspiting full-stack web developer with experience as a travel agent and beauty advisor. During her off-time, she enjoys food and travelling; while at home, she enjoys video games and anime.',
+              pic: 'images/animal_chara_computer_neko.png',
+              picAlt: 'an image of Ikumi Mine',
+            },
+          ],
+          containerStyle: 'container',
+          imgStyle: 'img',
+          infoStyle: 'info',
+          defaultImg: 'images/file_icon_mark_picture.png',
+        }
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js Lab 1 - Intro to v-bind</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+      .container { background: #cecece; }
+      .highlight { border: 3px solid yellow; }
+    </style>
+  </head>
+  <body>
+
+    <div id="app">
+      <span v-bind:class="[loadClass, newClass]"
+            v-bind:style="newStyle"
+            >look at me!
+      </span>
+      <img v-bind:src="imgSrc"
+           v-bind:alt="newAlt"
+           v-bind:title="imgTitle"> 
+    </div>
+
+    <script>
+      var app = new Vue({
+        el: '#app', 
+        data: { 
+          loadClass: 'container',
+          newStyle: 'font-size: 30px;',
+          newAlt: 'dynamically set alt!',
+          imgSrc: 'images/cat_koubakozuwari_brown.png',
+          imgTitle: 'A brown cat',
+          newClass: 'highlight',
+        }
+      })
+    </script>
+  </body>
+</html>
