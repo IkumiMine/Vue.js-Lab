@@ -21,6 +21,12 @@
         No profile data found. 
       </span>
 -->
+
+      <!-- The conditions statement I added
+           - if profiles don't exist, display "No profile data found."
+           - if the profile picture doesn't exist, display default picture.
+           - if the bio doesn't exist, display "BIO will be updated soon."
+      -->
       <div v-if="profiles.length">
         <figure v-bind:class="containerStyle">
           <img v-bind:src="profiles[0].pic ? profiles[0].pic : defaultImg" v-bind:alt="profiles[0].picAlt" v-bind:class="profiles[0].pic ? imgStyle : ''" width="100%">
