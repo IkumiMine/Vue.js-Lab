@@ -38,3 +38,39 @@
 - [x] Use the profile object to store information about yourself {fname, lname, desc, bio, pic}
 - [x] Create a figure, figcaption, and image markup which acts as a description for yourself
 - [x] Write conditionals if information is missing (i.e. 'no bio available' if bio is blank, generic image if no pic is found)
+
+
+### vue_4.html
+- [x] Run the code above!
+
+#### ASYNCHRONOUS LEARNING EXERCISE
+- [x] Add the next line through the console using app.scene.push() in the console
+- [x] Use v-if to style the text. Red if Macbeth is speaking, blue if Lady Macbeth -> I only add if statement that said Red if Macbeth is speaking else blue, so it can be improved with a switch case
+- [x] The lines are separated by \n. Can you re-structure the data and logic so that the dialogue has many lines, each line separate? -> I added white space CSS property.
+
+
+### vue_5.html
+- [x] Read the code above
+- [x] What will happen when you click the button? -> the box will disappear and appear when the button is clicked
+- [x] Run it and find out! -> the box disappeared and appeared when the button is clicked
+
+#### ASYNCHRONOUS LEARNING EXERCISE
+- [x] Modify this Vue app to make the button text change to "Hide" and "Show" respectively to match the function
+- [x] Make a red box 100px * 100px that becomes 10px taller every time you hover over it
+
+
+### vue_6.html
+- [x] Run the code above!
+
+#### ASYNCHRONOUS LEARNING EXERCISE
+- [x] Make the circles position absolute
+- [x] Create two new properties "x" and "y" for each orb
+- [x] Pass through values of "x" and "y" in the app to have circles on different spots of the screen
+
+
+### vue_7.html
+
+#### ASYNCHRONOUS LEARNING EXERCISE
+- [x] Find any J1 problem
+- [x] Imagine an interface that allows the user to enter data on the webpage
+- [x] Build using v-model and computed properties!

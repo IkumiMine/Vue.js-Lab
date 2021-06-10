@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	
+		<title>J1 Practice</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style>
+			#inputForm{margin-top:50px;}
+      .error{color:orangered;}
+      #output{margin-top:50px;}
+		</style>
+	</head>
+	<body>
+    <p>Boiling Water <a href="https://cemc.uwaterloo.ca/contests/computing/2021/index.html">from the J1 problem hosted by the CCC.</a></p>
+    
+    <div id="app">
+      <form id="inputForm">
+        <div>
+          <label for="temp">Temperature at which water begins to boil:</label>
+          <input id="temp" type="number" v-model="temp, check_input">
+          <p class="error" v-if="error != ''">{{error}}</p>
+          <p>*Temperature should be 80 &#8804; temperature &#8804; 200</p>
+        </div>
+      </form>
+      <div id="output">
+        <p>Atmospheric pressure: <span v-if="isvalid">{{calculate_pressure}}</span></p>
+        <p>Sea level: <span v-if="isvalid">{{find_level}}</span></p>
+        <p v-if="isvalid">{{message}}</p>
+      </div>
+    </div>
+    
+    <script>
+    var app = new Vue({
+      el: '#app',
+      data:{
+        temp:null,
+        error:"",
+        isvalid:false,
+        message:"",
+      },
+      computed: {
+        //validation for user input
+        check_input:{
+          get: function(){
+            return this.temp
+            },
+          set: function(newValue){
+            this.temp = newValue
+            if(newValue <= 80 && newValue != null) {
+              this.error = "Please input number greater than or equal to 80."
+              this.isvalid = false
+            } else if (newValue >= 200 && newValue != null) {
+              this.error = "Please input number less than or equal to 200."
+              this.isvalid = false
+            } else {
+              this.error = ""
+              this.isvalid = true
+            }
+          }
+        },
+        //calculate pressure based on user input temperature
+        calculate_pressure:function(){
+          return (5 * this.temp) - 400
+        },
+        //get sea level and message based on the pressure result
+        find_level:function(){
+          if(this.calculate_pressure > 100){
+            this.message =  "you are below sea level!"
+            return -1
+          } else if(this.calculate_pressure < 100) {
+            this.message = "you are above sea level!"
+            return 1
+          } else {
+            this.message = "you are at sea level!"
+            return 0
+          }
+        },
+      },
+    });
+    
+    </script>
+	</body>
+</html>
